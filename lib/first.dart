@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wizo/second.dart';
 
 class Screen1 extends StatefulWidget {
   const Screen1({super.key});
@@ -10,7 +11,6 @@ class Screen1 extends StatefulWidget {
 }
 
 class _Screen1State extends State<Screen1> {
-  List<String> img=["assets/g.png","assets/h.png","assets/i.png","assets/j.png"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +21,8 @@ class _Screen1State extends State<Screen1> {
           style: GoogleFonts.roboto(
             textStyle: TextStyle(
               color: Colors.black,
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w600,
+              fontSize: 26.sp,
+              fontWeight: FontWeight.w900,
             ),
           ),
         ),
@@ -58,13 +58,13 @@ class _Screen1State extends State<Screen1> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 18,top: 5),
+                        padding: const EdgeInsets.only(left: 18, top: 5),
                         child: CircleAvatar(
                           backgroundColor: Color(0x338204FF),
                           radius: 10.r,
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 2,bottom: 4),
-                            child: Text("1"),
+                            padding: const EdgeInsets.only(left: 2, bottom: 4),
+                            child: Text("1", style: TextStyle(fontSize: 13)),
                           ),
                         ),
                       ),
@@ -289,16 +289,79 @@ class _Screen1State extends State<Screen1> {
             SizedBox(
               height: 30.h,
             ),
-            Container(
-              width: 344.w,
-              height: 130.h,
-              decoration: ShapeDecoration(
-                  color: Colors.purple,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),
-              child: Image.asset("assets/k.png",),
+            Stack(
+              children: [
+                Container(
+                  width: 344.w,
+                  height: 120.h,
+                  decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10))),
+                  child: Image.asset(
+                    "assets/k.png",
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 13,left: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Don't Miss Out!",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 27.sp,
+                              fontWeight: FontWeight.w800,
+                              height: 0.h),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 3,left: 4),
+                        child: Text(
+                          'Save Up to 75% Off',
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w400,
+                              height: 0.h,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8,left: 5),
+                        child: Container(
+                          width: 85.w,
+                          height: 35.h,
+                          decoration: ShapeDecoration(
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),),),
+                          child:  Center(
+                            child: Text(
+                              'Shop now',
+                              style:  GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                color: Color(0xFF8204FF),
+                                fontSize: 14.sp,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.w600,
+                                height: 0.h,
+                              ),)
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 20.h,),
+            SizedBox(
+              height: 20.h,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -328,10 +391,12 @@ class _Screen1State extends State<Screen1> {
                 ],
               ),
             ),
-            SizedBox(height: 10.w,),
+            SizedBox(
+              height: 10.w,
+            ),
             SizedBox(
               width: 500.w,
-              height: 500.h,
+              height: 400.h,
               child: GridView.count(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10.0,
@@ -342,29 +407,70 @@ class _Screen1State extends State<Screen1> {
                   (index) {
                     return Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          image: DecorationImage(
-                            image: NetworkImage('img.png'),
-                            fit: BoxFit.cover,
+                      child: GestureDetector(onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Screen2()));},
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white38,
+                            image: DecorationImage(
+                              image: NetworkImage('img.png'),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20.0),
+                            ),
                           ),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20.0),
-                          ),
-                        ),
-                        child: ClipRRect(
-                            borderRadius:
-                        BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)
-                         ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20)),
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset(img[index]),
+                                Image.asset("assets/h.png"),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 10, top: 6),
+                                  child: Text(
+                                    'Sneaker',
+                                    style: GoogleFonts.roboto(
+                                      textStyle: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 10, top: 6),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        '\$599',
+                                        style: GoogleFonts.roboto(
+                                          textStyle: TextStyle(
+                                            color: Color(0xFF8204FF),
+                                            fontSize: 19.sp,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 100.w,
+                                      ),
+                                      Icon(
+                                        Icons.add_shopping_cart_outlined,
+                                        color: Color(0xFF8204FF),
+                                        size: 19,
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
-
+                          ),
                         ),
-
                       ),
                     );
                   },
