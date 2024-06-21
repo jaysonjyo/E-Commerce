@@ -19,10 +19,10 @@ class _Screen1State extends State<Screen1> {
 
   @override
   void initState() {
-    BlocProvider.of<WizoBloc>(context).add(FetchWizoEvent());
+    BlocProvider.of<WizoBloc>(context).add(FetchWizoEvent(searchKey: '', forAll: true,));
     super.initState();
   }
-
+TextEditingController controller=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,7 +100,9 @@ class _Screen1State extends State<Screen1> {
                     color: Colors.white60,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25))),
-                child: TextField(
+                child: TextField(controller: controller,onSubmitted: (value){
+                  BlocProvider.of<WizoBloc>(context).add(FetchWizoEvent(searchKey: controller.text, forAll: false,));
+                },
                   decoration: InputDecoration(
                     labelText: "Search",
                     prefixIcon: Icon(

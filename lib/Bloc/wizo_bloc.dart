@@ -11,10 +11,10 @@ class WizoBloc extends Bloc<WizoEvent, WizoState> {
   late WizoModel wizoModel;
   WizoApi wizoApi = WizoApi();
   WizoBloc() : super(WizoInitial()) {
-    on<WizoEvent>((event, emit) async {
+    on<FetchWizoEvent>((event, emit) async {
       emit(WizoBlocLoading());
       try{
-        wizoModel =await wizoApi.getWizo();
+        wizoModel =await wizoApi.getWizo(event.forAll,event.searchKey);
          emit (WizoBlocLoaded());
 
       }catch(aa){

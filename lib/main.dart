@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wizo/Bloc/review_bloc.dart';
 import 'package:wizo/UI/first.dart';
 
 import 'Bloc/second_bloc.dart';
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
               ),
               BlocProvider(
                 create: (context) => SecondBloc(),
+              ),
+              BlocProvider(
+                create: (context) => ReviewBloc(),
               ),
               ],
             child: MaterialApp(
