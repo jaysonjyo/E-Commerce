@@ -668,10 +668,10 @@ class _Screen2State extends State<Screen2> {
                           thirwedReview = BlocProvider.of<ReviewBloc>(context)
                               .wizoReviewModel;
                           return SizedBox(
-                            height: 500.h,
+                            height: 240* thirwedReview.data!.reviews!.length.toDouble(),
                             child: ListView.separated(
                               itemCount: thirwedReview.data!.reviews!.length,
-                              scrollDirection: Axis.vertical,
+                              scrollDirection: Axis.vertical,physics: NeverScrollableScrollPhysics(),
                               itemBuilder: (context, position) {
                                 return Container(
                                   decoration: ShapeDecoration(
